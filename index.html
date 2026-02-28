@@ -1,0 +1,1897 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Hillcrest International School — Gaborone, Botswana</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet"/>
+<style>
+/* ════ RESET — must be first ════ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+img{display:block;max-width:100%;height:auto}
+a{text-decoration:none}
+button{cursor:pointer;border:none;background:none;font:inherit}
+ul{list-style:none}
+
+/* ════ TOKENS ════ */
+:root{
+  --forest:#0D2B1E;
+  --forest-mid:#163A28;
+  --leaf:#1A4D33;
+  --gold:#C9A84C;
+  --gold-light:#E8CC7A;
+  --gold-pale:#F5EAC8;
+  --cream:#F7F2E8;
+  --cream-dark:#EDE5D0;
+  --white:#FDFCF9;
+  --text:#1A1208;
+  --muted:#6B6252;
+  --r:4px;
+  --nav-h:72px;
+  --wrap:1300px;
+}
+
+/* ════ BASE ════ */
+body{
+  font-family:'DM Sans',system-ui,sans-serif;
+  background:var(--white);
+  color:var(--text);
+  overflow-x:hidden;
+  line-height:1.6;
+}
+
+/* ════ LAYOUT UTILITIES ════ */
+.container{
+  width:100%;
+  max-width:var(--wrap);
+  margin-inline:auto;
+  padding-inline:clamp(1.25rem,5vw,4rem);
+}
+
+/* ════ TOP CONTACT BAR ════ */
+.topbar{
+  background:var(--forest);
+  position:relative;
+  z-index:200;
+}
+.topbar-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  height:42px;
+  gap:1rem;
+  flex-wrap:wrap;
+}
+.topbar-phone{
+  display:flex;
+  align-items:center;
+  gap:.5rem;
+  color:var(--gold-light);
+  font-size:.88rem;
+  font-weight:500;
+  letter-spacing:.02em;
+}
+.topbar-phone svg{width:14px;height:14px;stroke:var(--gold);fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
+.topbar-phone:hover{color:var(--gold)}
+.topbar-email{
+  color:rgba(247,242,232,.5);
+  font-size:.78rem;
+  font-weight:300;
+}
+.topbar-email:hover{color:var(--cream)}
+.topbar-sep{color:rgba(247,242,232,.2);font-size:.75rem}
+.topbar-right{
+  display:flex;
+  align-items:center;
+  gap:.2rem;
+  font-size:.7rem;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:rgba(247,242,232,.3);
+}
+.topbar-right a{
+  color:rgba(247,242,232,.45);
+  font-size:.7rem;
+  font-weight:500;
+  padding:.1rem .4rem;
+  transition:color .2s;
+}
+.topbar-right a:hover{color:var(--gold)}
+
+/* ════ NAV ════ */
+.nav{
+  position:sticky;
+  top:0;
+  z-index:199;
+  height:var(--nav-h);
+  display:flex;
+  align-items:center;
+  background:transparent;
+  transition:background .3s,box-shadow .3s;
+}
+.nav.solid{
+  background:rgba(9,32,21,.97);
+  backdrop-filter:blur(14px);
+  box-shadow:0 2px 24px rgba(0,0,0,.3);
+}
+.nav-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  width:100%;
+  max-width:var(--wrap);
+  margin-inline:auto;
+  padding-inline:clamp(1.25rem,5vw,4rem);
+}
+.nav-left{display:flex;align-items:center;gap:1rem}
+.nav-logo{
+  height:44px;
+  width:44px;
+  object-fit:contain;
+  filter:brightness(0) invert(1);
+  opacity:.9;
+  flex-shrink:0;
+}
+.nav-brand strong{
+  display:block;
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.1rem;
+  font-weight:400;
+  color:var(--cream);
+  letter-spacing:.04em;
+  white-space:nowrap;
+}
+.nav-brand small{
+  display:block;
+  font-size:.56rem;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:var(--gold);
+  font-weight:300;
+  white-space:nowrap;
+}
+
+.nav-links{
+  display:flex;
+  align-items:center;
+  gap:.1rem;
+}
+.n-item{position:relative}
+.n-link{
+  display:flex;
+  align-items:center;
+  gap:.25rem;
+  color:rgba(247,242,232,.78);
+  font-size:.72rem;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  font-weight:400;
+  padding:.45rem .8rem;
+  border-radius:var(--r);
+  transition:color .2s,background .2s;
+  white-space:nowrap;
+}
+.n-link:hover{color:var(--gold-light);background:rgba(255,255,255,.06)}
+.n-arr{font-size:.5rem;opacity:.55;transition:transform .2s}
+.n-item:hover .n-arr{transform:rotate(180deg)}
+
+.n-drop{
+  position:absolute;
+  top:calc(100% + 4px);
+  left:0;
+  background:rgba(7,20,13,.97);
+  backdrop-filter:blur(16px);
+  border:1px solid rgba(201,168,76,.16);
+  border-radius:var(--r);
+  min-width:200px;
+  padding:.4rem 0;
+  opacity:0;
+  visibility:hidden;
+  transform:translateY(-8px);
+  transition:opacity .2s,visibility .2s,transform .2s;
+  z-index:500;
+}
+.n-item:hover .n-drop{opacity:1;visibility:visible;transform:translateY(0)}
+.n-drop a{
+  display:block;
+  padding:.58rem 1.1rem;
+  color:rgba(247,242,232,.68);
+  font-size:.76rem;
+  font-weight:300;
+  transition:color .15s,background .15s;
+}
+.n-drop a:hover{color:var(--gold-light);background:rgba(255,255,255,.06)}
+.n-drop hr{border:none;border-top:1px solid rgba(255,255,255,.07);margin:.3rem 0}
+
+.nav-cta{
+  background:var(--gold);
+  color:var(--forest) !important;
+  padding:.46rem 1.2rem !important;
+  border-radius:var(--r);
+  font-weight:500 !important;
+  letter-spacing:.1em !important;
+  margin-left:.6rem;
+  transition:background .2s !important;
+}
+.nav-cta:hover{background:var(--gold-light) !important}
+
+.nav-burger{
+  display:none;
+  flex-direction:column;
+  gap:5px;
+  padding:4px;
+  cursor:pointer;
+}
+.nav-burger span{width:22px;height:1.5px;background:var(--cream);display:block;transition:.3s}
+
+/* ════ HERO ════ */
+.hero{
+  position:relative;
+  width:100%;
+  height:100vh;
+  min-height:580px;
+  max-height:1000px;
+  display:flex;
+  align-items:flex-end;
+  overflow:hidden;
+}
+.hero-bg{
+  position:absolute;
+  inset:0;
+}
+.hero-bg img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center 20%;
+}
+.hero-bg::after{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(to top, rgba(5,18,10,.92) 0%, rgba(5,18,10,.55) 45%, rgba(5,18,10,.1) 100%);
+}
+.hero-body{
+  position:relative;
+  z-index:2;
+  width:100%;
+  max-width:var(--wrap);
+  margin-inline:auto;
+  padding-inline:clamp(1.25rem,5vw,4rem);
+  padding-bottom:clamp(2.5rem,8vh,6rem);
+}
+.hero-tag{
+  display:inline-flex;
+  align-items:center;
+  gap:.55rem;
+  background:rgba(201,168,76,.12);
+  border:1px solid rgba(201,168,76,.45);
+  padding:.3rem 1rem;
+  border-radius:100px;
+  color:var(--gold);
+  font-size:.64rem;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  margin-bottom:1.4rem;
+  opacity:0;
+  animation:rise .8s .1s forwards;
+}
+.hero-tag i{
+  width:5px;height:5px;
+  background:var(--gold);
+  border-radius:50%;
+  display:block;
+  flex-shrink:0;
+}
+.hero-h1{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(2.4rem,6vw,5.5rem);
+  font-weight:300;
+  line-height:1.07;
+  color:var(--cream);
+  margin-bottom:1.2rem;
+  opacity:0;
+  animation:rise .9s .3s forwards;
+  max-width:800px;
+}
+.hero-h1 em{font-style:italic;color:var(--gold-light)}
+.hero-sub{
+  font-size:clamp(.88rem,1.4vw,1rem);
+  line-height:1.8;
+  color:rgba(247,242,232,.65);
+  font-weight:300;
+  max-width:480px;
+  margin-bottom:2rem;
+  opacity:0;
+  animation:rise .9s .55s forwards;
+}
+.hero-row{
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:2rem;
+  opacity:0;
+  animation:rise .9s .7s forwards;
+}
+.hero-btns{display:flex;gap:.75rem;flex-wrap:wrap;align-items:center}
+.hero-stats{display:flex;gap:2.5rem}
+.stat-n{
+  font-family:'Cormorant Garamond',serif;
+  font-size:2.4rem;
+  font-weight:300;
+  color:var(--gold-light);
+  line-height:1;
+}
+.stat-l{
+  font-size:.58rem;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:rgba(247,242,232,.42);
+  margin-top:.25rem;
+}
+
+@keyframes rise{
+  from{opacity:0;transform:translateY(22px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+/* ════ BUTTONS ════ */
+.btn{
+  display:inline-flex;
+  align-items:center;
+  gap:.5rem;
+  padding:.78rem 1.7rem;
+  font-size:.74rem;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  font-weight:500;
+  border-radius:var(--r);
+  font-family:'DM Sans',sans-serif;
+  transition:background .2s,border-color .2s,color .2s,transform .18s;
+  white-space:nowrap;
+  cursor:pointer;
+  border:1px solid transparent;
+}
+.btn:hover{transform:translateY(-2px)}
+.btn-g{background:var(--gold);color:var(--forest)}
+.btn-g:hover{background:var(--gold-light)}
+.btn-o{background:transparent;border-color:rgba(247,242,232,.35);color:var(--cream)}
+.btn-o:hover{border-color:var(--gold);color:var(--gold-light)}
+.btn-f{background:var(--forest);color:var(--cream)}
+.btn-f:hover{background:var(--leaf)}
+
+/* ════ MARQUEE ════ */
+.marquee{
+  background:var(--gold);
+  overflow:hidden;
+  display:flex;
+  padding:.7rem 0;
+}
+.m-track{
+  display:flex;
+  white-space:nowrap;
+  flex-shrink:0;
+  animation:ticker 36s linear infinite;
+}
+.m-item{
+  display:inline-flex;
+  align-items:center;
+  gap:.8rem;
+  padding:0 1.8rem;
+  font-size:.66rem;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  color:var(--forest);
+  font-weight:500;
+}
+.m-dot{width:4px;height:4px;background:rgba(13,43,30,.35);border-radius:50%;flex-shrink:0}
+@keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ════ MOTTO BAND ════ */
+.motto-band{
+  background:var(--forest);
+  padding:clamp(3rem,7vw,5.5rem) clamp(1.25rem,5vw,4rem);
+  text-align:center;
+  overflow:hidden;
+  position:relative;
+}
+.motto-band::before,
+.motto-band::after{
+  content:'';
+  position:absolute;
+  left:50%;
+  transform:translateX(-50%);
+  width:min(600px,80%);
+  height:1px;
+  background:linear-gradient(to right,transparent,rgba(201,168,76,.45),transparent);
+}
+.motto-band::before{top:0}
+.motto-band::after{bottom:0}
+.motto-eyebrow{
+  font-size:.64rem;
+  letter-spacing:.3em;
+  text-transform:uppercase;
+  color:rgba(201,168,76,.55);
+  margin-bottom:1.2rem;
+}
+.motto-main{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(3rem,8vw,8rem);
+  font-weight:300;
+  font-style:italic;
+  letter-spacing:.06em;
+  color:var(--gold-light);
+  line-height:1;
+  text-shadow:0 0 80px rgba(201,168,76,.2);
+  margin-bottom:1.2rem;
+}
+.motto-rule{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:1.2rem;
+  margin-bottom:1.2rem;
+}
+.motto-rule span{width:60px;height:1px;background:rgba(201,168,76,.35)}
+.motto-rule i{
+  width:8px;height:8px;
+  background:var(--gold);
+  border-radius:50%;
+  opacity:.7;
+  display:block;
+}
+.motto-sub{
+  font-size:.72rem;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:rgba(247,242,232,.3);
+}
+
+/* ════ TOUR BANNER ════ */
+.tour-band{
+  background:var(--forest-mid);
+  border-top:2px solid rgba(201,168,76,.2);
+  border-bottom:2px solid rgba(201,168,76,.2);
+}
+.tour-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:1.5rem;
+  padding-block:2.2rem;
+}
+.tour-left{display:flex;align-items:center;gap:1.2rem}
+.tour-icon{
+  width:50px;height:50px;
+  background:rgba(201,168,76,.1);
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.4rem;
+  flex-shrink:0;
+}
+.tour-left h3{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.4rem;
+  color:var(--cream);
+  font-weight:400;
+}
+.tour-left p{
+  font-size:.83rem;
+  color:rgba(247,242,232,.5);
+  font-weight:300;
+  margin-top:.15rem;
+}
+.tour-phone{
+  display:flex;
+  align-items:center;
+  gap:.5rem;
+  background:rgba(201,168,76,.1);
+  border:1px solid rgba(201,168,76,.3);
+  padding:.55rem 1.1rem;
+  border-radius:var(--r);
+  color:var(--gold-light);
+  font-size:.85rem;
+  font-weight:500;
+  transition:background .2s;
+}
+.tour-phone:hover{background:rgba(201,168,76,.18)}
+
+/* ════ SECTION SCAFFOLDING ════ */
+.section{padding:clamp(3.5rem,8vw,6.5rem) 0}
+.section-label{
+  display:flex;
+  align-items:center;
+  gap:.7rem;
+  font-size:.62rem;
+  letter-spacing:.28em;
+  text-transform:uppercase;
+  color:var(--gold);
+  font-weight:500;
+  margin-bottom:.85rem;
+}
+.section-label::before{
+  content:'';
+  display:block;
+  width:24px;height:1px;
+  background:var(--gold);
+  flex-shrink:0;
+}
+.section-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(1.9rem,3.5vw,3.2rem);
+  font-weight:300;
+  line-height:1.2;
+  color:var(--forest);
+}
+.section-title em{font-style:italic;color:var(--gold)}
+.section-title.light{color:var(--cream)}
+
+/* ════ REVEAL ANIMATION ════ */
+.rv{opacity:0;transform:translateY(20px);transition:opacity .65s ease,transform .65s ease}
+.rv.in{opacity:1;transform:none}
+.rv.d1{transition-delay:.1s}
+.rv.d2{transition-delay:.2s}
+.rv.d3{transition-delay:.3s}
+
+/* ════ ABOUT ════ */
+.about-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:clamp(2rem,5vw,5rem);
+  align-items:center;
+}
+.about-copy p{
+  font-size:.95rem;
+  line-height:1.9;
+  color:var(--muted);
+  font-weight:300;
+  margin-top:1rem;
+}
+.about-feats{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:2px;
+  background:var(--cream-dark);
+}
+.af{
+  background:var(--white);
+  padding:1.8rem 1.5rem;
+  transition:background .2s;
+}
+.af:hover{background:var(--cream)}
+.af-icon{
+  width:36px;height:36px;
+  border:1px solid var(--cream-dark);
+  border-radius:var(--r);
+  display:flex;align-items:center;justify-content:center;
+  margin-bottom:.9rem;
+}
+.af-icon svg{width:16px;height:16px;stroke:var(--gold);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.af h3{font-family:'Cormorant Garamond',serif;font-size:1.05rem;color:var(--forest);margin-bottom:.3rem}
+.af p{font-size:.78rem;line-height:1.6;color:var(--muted);font-weight:300}
+
+/* ════ PROGRAMMES ════ */
+.progs-section{background:var(--forest)}
+.progs-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-end;
+  flex-wrap:wrap;
+  gap:1.5rem;
+  margin-bottom:2.5rem;
+}
+.progs-head p{
+  max-width:340px;
+  font-size:.9rem;
+  line-height:1.8;
+  color:rgba(247,242,232,.5);
+  font-weight:300;
+}
+.prog-cards{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:2px;
+  background:rgba(255,255,255,.07);
+}
+.pc{
+  background:var(--forest-mid);
+  padding:2.2rem 1.8rem;
+  position:relative;
+  overflow:hidden;
+  transition:background .3s;
+}
+.pc:hover{background:var(--leaf)}
+.pc::after{
+  content:'';
+  position:absolute;
+  bottom:0;left:0;right:0;
+  height:2px;
+  background:var(--gold);
+  transform:scaleX(0);
+  transform-origin:left;
+  transition:transform .3s;
+}
+.pc:hover::after{transform:scaleX(1)}
+.pc-n{font-family:'Cormorant Garamond',serif;font-size:3.5rem;font-weight:300;color:rgba(201,168,76,.08);line-height:1;margin-bottom:1.4rem}
+.pc h3{font-family:'Cormorant Garamond',serif;font-size:1.35rem;color:var(--cream);margin-bottom:.35rem}
+.pc-age{font-size:.63rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:.85rem}
+.pc p{font-size:.82rem;line-height:1.75;color:rgba(247,242,232,.52);font-weight:300}
+
+/* ════ GALLERY ════ */
+.g-grid{
+  display:grid;
+  grid-template-columns:1.6fr 1fr 1fr;
+  grid-template-rows:280px 280px;
+  gap:3px;
+}
+.gc{overflow:hidden;position:relative}
+.gc img{width:100%;height:100%;object-fit:cover;transition:transform .55s,filter .35s;filter:saturate(.82)}
+.gc:hover img{transform:scale(1.06);filter:saturate(1)}
+.gc.tall{grid-row:span 2}
+.gc-ov{
+  position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(13,43,30,.55) 0%,transparent 50%);
+  opacity:0;transition:opacity .3s;
+}
+.gc:hover .gc-ov{opacity:1}
+
+/* ════ PSLE ════ */
+.psle-section{background:var(--forest)}
+.psle-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:clamp(2rem,5vw,4.5rem);
+  align-items:start;
+  margin-top:3rem;
+}
+.psle-photo{position:relative}
+.psle-photo img{width:100%;border-radius:var(--r);display:block}
+.psle-badge{
+  position:absolute;
+  bottom:-12px;right:-12px;
+  background:var(--gold);
+  color:var(--forest);
+  padding:1rem 1.2rem;
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.8rem;
+  font-weight:600;
+  line-height:1;
+  text-align:center;
+  border-radius:var(--r);
+}
+.psle-badge small{
+  display:block;
+  font-family:'DM Sans',sans-serif;
+  font-size:.58rem;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  font-weight:400;
+  margin-top:.2rem;
+}
+.psle-copy h3{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.75rem;
+  font-weight:300;
+  color:var(--gold-light);
+  margin-bottom:.9rem;
+}
+.psle-copy p{font-size:.88rem;line-height:1.85;color:rgba(247,242,232,.58);font-weight:300;margin-bottom:.9rem}
+
+/* HONOUR ROLL */
+.hr-wrap{margin-top:3.5rem}
+.hr-ey{
+  display:flex;align-items:center;gap:.7rem;
+  font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);
+  margin-bottom:1.8rem;
+}
+.hr-ey::before{content:'';width:24px;height:1px;background:var(--gold);display:block}
+.hr-grid{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:2px;
+  background:rgba(255,255,255,.06);
+}
+.hrc{
+  background:var(--forest-mid);
+  padding:1.4rem .9rem;
+  text-align:center;
+  transition:background .25s;
+}
+.hrc:hover{background:var(--leaf)}
+.hrc-rank{font-family:'Cormorant Garamond',serif;font-size:.82rem;color:var(--gold);opacity:.6;margin-bottom:.45rem}
+.hrc-img{
+  width:50px;height:50px;
+  border-radius:50%;
+  object-fit:cover;
+  object-position:top;
+  border:2px solid rgba(201,168,76,.28);
+  margin:0 auto .55rem;
+  background:var(--leaf);
+}
+.hrc-name{font-size:.76rem;color:var(--cream);font-weight:400;line-height:1.3}
+.hrc-grade{
+  font-family:'Cormorant Garamond',serif;
+  font-size:.92rem;
+  color:var(--gold-light);
+  margin-top:.25rem;
+}
+.hr-note{text-align:center;font-size:.73rem;color:rgba(247,242,232,.3);font-style:italic;margin-top:1.4rem}
+
+/* ════ ACTIVITIES ════ */
+.act-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:3px;
+  background:var(--cream-dark);
+  margin-top:3rem;
+}
+.ac{background:var(--white);overflow:hidden}
+.ac img{width:100%;height:220px;object-fit:cover;transition:transform .5s,filter .3s;filter:saturate(.82)}
+.ac:hover img{transform:scale(1.05);filter:saturate(1.08)}
+.ac-body{padding:1.5rem 1.3rem}
+.ac-tag{
+  display:inline-block;
+  background:var(--gold-pale);
+  color:var(--forest);
+  font-size:.58rem;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  padding:.2rem .6rem;
+  border-radius:100px;
+  margin-bottom:.7rem;
+  font-weight:500;
+}
+.ac h3{font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:var(--forest);margin-bottom:.4rem}
+.ac p{font-size:.8rem;line-height:1.65;color:var(--muted);font-weight:300}
+
+/* ════ UNIFORM ════ */
+.uniform-section{background:var(--cream)}
+.uni-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:clamp(2rem,5vw,4.5rem);
+  align-items:start;
+  margin-top:3rem;
+}
+.uni-cards{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:1.2rem;
+}
+.uc{
+  background:var(--white);
+  border-radius:var(--r);
+  overflow:hidden;
+  box-shadow:0 3px 16px rgba(0,0,0,.07);
+  transition:transform .25s,box-shadow .25s;
+}
+.uc:hover{transform:translateY(-4px);box-shadow:0 8px 30px rgba(0,0,0,.11)}
+.uc img{width:100%;height:200px;object-fit:cover;object-position:center top}
+.uc-body{padding:1.1rem}
+.uc-body h3{font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:var(--forest);margin-bottom:.35rem}
+.uc-body p{font-size:.78rem;line-height:1.6;color:var(--muted);font-weight:300}
+
+.uni-desc h2{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(1.8rem,3vw,2.5rem);
+  font-weight:300;
+  color:var(--forest);
+  line-height:1.25;
+  margin-bottom:1rem;
+}
+.uni-desc h2 em{font-style:italic;color:var(--gold)}
+.uni-desc>p{font-size:.92rem;line-height:1.85;color:var(--muted);font-weight:300;margin-bottom:.9rem}
+.uni-pills{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem}
+.pill{
+  background:var(--white);
+  border:1px solid var(--cream-dark);
+  padding:.35rem .8rem;
+  border-radius:100px;
+  font-size:.73rem;
+  color:var(--muted);
+  font-weight:300;
+}
+.shop-note{
+  margin-top:1.5rem;
+  background:var(--white);
+  border-left:3px solid var(--gold);
+  padding:.95rem 1.1rem;
+  border-radius:0 var(--r) var(--r) 0;
+  font-size:.83rem;
+  line-height:1.65;
+  color:var(--text);
+}
+.shop-note strong{color:var(--forest)}
+
+/* ════ TRANSPORT ════ */
+.transport-band{
+  background:var(--cream-dark);
+  border-top:1px solid rgba(13,43,30,.08);
+}
+.transport-inner{
+  display:flex;
+  align-items:flex-start;
+  gap:1.4rem;
+  padding-block:2rem;
+}
+.transport-icon{font-size:1.7rem;flex-shrink:0;padding-top:.05rem}
+.transport-inner h3{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.25rem;
+  color:var(--forest);
+  margin-bottom:.45rem;
+}
+.transport-inner p{font-size:.86rem;line-height:1.75;color:var(--muted);font-weight:300}
+
+/* ════ DOCUMENTS ════ */
+.docs-section{background:var(--forest)}
+.docs-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:2px;
+  background:rgba(255,255,255,.06);
+  max-width:860px;
+  margin:3rem auto 0;
+}
+.doc-card{
+  background:var(--forest-mid);
+  padding:2rem 1.7rem;
+  border-bottom:2px solid transparent;
+  transition:background .3s,border-color .3s;
+}
+.doc-card:hover{background:var(--leaf);border-color:var(--gold)}
+.doc-icon{
+  width:44px;height:44px;
+  background:rgba(201,168,76,.1);
+  border-radius:var(--r);
+  display:flex;align-items:center;justify-content:center;
+  margin-bottom:1.2rem;
+}
+.doc-icon svg{width:20px;height:20px;stroke:var(--gold);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.doc-card h3{font-family:'Cormorant Garamond',serif;font-size:1.3rem;color:var(--cream);margin-bottom:.45rem}
+.doc-card p{font-size:.79rem;line-height:1.65;color:rgba(247,242,232,.48);font-weight:300;margin-bottom:1.3rem}
+.doc-link{
+  display:inline-flex;align-items:center;gap:.45rem;
+  color:var(--gold);
+  font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;font-weight:500;
+  transition:gap .2s;
+}
+.doc-link:hover{gap:.8rem}
+
+/* ════ FEES ════ */
+.fees-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:clamp(2rem,5vw,5rem);
+  align-items:start;
+}
+.fees-copy h2{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(1.9rem,3.5vw,3rem);
+  font-weight:300;
+  color:var(--forest);
+  line-height:1.2;
+  margin-bottom:1rem;
+}
+.fees-copy h2 em{font-style:italic;color:var(--gold)}
+.fees-copy p{font-size:.92rem;line-height:1.85;color:var(--muted);font-weight:300;margin-bottom:.9rem}
+.fees-stack{display:flex;flex-direction:column;gap:2px;background:var(--cream-dark)}
+.fc{
+  background:var(--white);
+  padding:1.4rem 1.6rem;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  transition:background .2s;
+  color:inherit;
+}
+.fc:hover{background:var(--gold-pale)}
+.fc h4{font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:var(--forest)}
+.fc small{font-size:.75rem;color:var(--muted);font-weight:300;display:block;margin-top:.1rem}
+.fc-arr{color:var(--gold);font-size:1.1rem;flex-shrink:0}
+
+/* ════ PULL QUOTE ════ */
+.pullquote{
+  background:var(--gold);
+  padding:clamp(2.5rem,5vw,4.5rem) clamp(1.25rem,5vw,4rem);
+  text-align:center;
+}
+.pullquote blockquote{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(1.5rem,2.8vw,2.5rem);
+  font-weight:300;
+  font-style:italic;
+  color:var(--forest);
+  max-width:780px;
+  margin:0 auto;
+  line-height:1.45;
+}
+.pullquote cite{
+  display:block;
+  margin-top:1.2rem;
+  font-family:'DM Sans',sans-serif;
+  font-size:.66rem;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  color:rgba(13,43,30,.5);
+  font-style:normal;
+}
+
+/* ════ TESTIMONIALS ════ */
+.t-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1.5rem;
+  margin-top:3rem;
+}
+.tc{
+  padding:2rem;
+  border:1px solid var(--cream-dark);
+  border-radius:var(--r);
+  position:relative;
+  transition:box-shadow .25s,transform .25s;
+}
+.tc:hover{box-shadow:0 6px 28px rgba(0,0,0,.07);transform:translateY(-3px)}
+.tc::before{
+  content:'\201C';
+  font-family:'Cormorant Garamond',serif;
+  font-size:4rem;
+  color:var(--gold);
+  opacity:.2;
+  position:absolute;top:.6rem;left:1.2rem;
+  line-height:1;
+}
+.tc-text{font-size:.87rem;line-height:1.85;color:var(--muted);font-weight:300;padding-top:1.6rem}
+.tc-author{
+  margin-top:1rem;
+  font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--forest);font-weight:500;
+}
+
+/* ════ ADMISSIONS ════ */
+.adm-section{background:var(--forest)}
+.adm-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:clamp(2rem,5vw,5rem);
+  align-items:start;
+}
+.adm-copy p{font-size:.92rem;line-height:1.85;color:rgba(247,242,232,.55);font-weight:300;margin:1rem 0 1.8rem}
+.adm-steps{display:flex;flex-direction:column}
+.adm-step{
+  display:flex;gap:1.5rem;
+  padding:1.5rem 0;
+  border-bottom:1px solid rgba(247,242,232,.07);
+}
+.adm-step:last-child{border:none}
+.step-n{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.9rem;
+  color:var(--gold);
+  opacity:.45;
+  line-height:1;
+  flex-shrink:0;
+  width:1.8rem;
+}
+.step-body h4{
+  font-size:.76rem;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--cream);margin-bottom:.28rem;
+}
+.step-body p{font-size:.8rem;line-height:1.65;color:rgba(247,242,232,.42);font-weight:300}
+
+/* ════ LOCATION ════ */
+.loc-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:clamp(2rem,4vw,4rem);
+  align-items:start;
+  margin-top:3rem;
+}
+.map-box{
+  border-radius:var(--r);
+  overflow:hidden;
+  height:400px;
+}
+.map-box iframe{width:100%;height:100%;border:none;display:block}
+.loc-info{display:flex;flex-direction:column;gap:1.8rem}
+.office-photo{
+  border-radius:var(--r);
+  overflow:hidden;
+  height:200px;
+}
+.office-photo img{width:100%;height:100%;object-fit:cover}
+.loc-rows{display:flex;flex-direction:column;gap:1rem}
+.lr{display:flex;gap:.9rem;align-items:flex-start}
+.lr-ic{font-size:.95rem;flex-shrink:0;margin-top:.05rem}
+.lr-body strong{
+  display:block;font-size:.62rem;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--forest);margin-bottom:.15rem;
+}
+.lr-body span{font-size:.85rem;color:var(--muted);font-weight:300;line-height:1.5}
+.lr-body a{color:var(--leaf);font-weight:400}
+.lr-body a:hover{color:var(--forest)}
+
+/* ════ CONTACT ════ */
+.contact-section{background:var(--cream)}
+.contact-grid{
+  display:grid;
+  grid-template-columns:1fr 1.3fr;
+  gap:clamp(2rem,5vw,5rem);
+  align-items:start;
+}
+.ci h2{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(1.9rem,3.5vw,2.8rem);
+  font-weight:300;
+  color:var(--forest);
+  margin-bottom:1rem;
+  line-height:1.25;
+}
+.ci h2 em{font-style:italic;color:var(--gold)}
+.ci>p{font-size:.92rem;line-height:1.85;color:var(--muted);font-weight:300}
+.ci-socials{display:flex;gap:.5rem;margin-top:1.6rem}
+.ci-soc{
+  width:36px;height:36px;
+  border:1px solid var(--cream-dark);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--muted);
+  font-size:.72rem;font-weight:600;
+  border-radius:var(--r);
+  transition:border-color .2s,color .2s;
+}
+.ci-soc:hover{border-color:var(--gold);color:var(--gold)}
+.cf{display:flex;flex-direction:column;gap:1rem}
+.cf-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.fg{display:flex;flex-direction:column;gap:.35rem}
+.fg label{
+  font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--forest);font-weight:500;
+}
+.fg input,.fg select,.fg textarea{
+  background:var(--white);
+  border:1px solid transparent;
+  padding:.75rem .9rem;
+  font-size:.86rem;
+  font-family:'DM Sans',sans-serif;
+  color:var(--text);
+  border-radius:var(--r);
+  outline:none;
+  transition:border-color .2s,background .2s;
+  width:100%;
+}
+.fg input:focus,.fg select:focus,.fg textarea:focus{
+  border-color:var(--gold);background:var(--white);
+}
+.fg textarea{resize:vertical;min-height:88px}
+.form-note{
+  font-size:.73rem;color:var(--muted);font-weight:300;
+  background:var(--white);
+  padding:.6rem .9rem;
+  border-radius:var(--r);
+  border-left:2px solid var(--gold);
+}
+
+/* ════ FOOTER ════ */
+footer{background:#081510;color:var(--cream)}
+.ft-main{
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr 1fr;
+  gap:2.5rem;
+  padding:clamp(3rem,6vw,5rem) 0 2.5rem;
+}
+.ft-brand-logo{display:flex;align-items:center;gap:.9rem;margin-bottom:.9rem}
+.ft-logo{height:38px;width:38px;object-fit:contain;filter:brightness(0) invert(1);opacity:.75}
+.ft-brand-txt strong{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.05rem;font-weight:400;
+  color:var(--cream);display:block;
+}
+.ft-brand-txt small{
+  font-size:.53rem;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--gold);font-weight:300;
+}
+.ft-brand p{font-size:.8rem;line-height:1.75;color:rgba(247,242,232,.36);font-weight:300;margin-bottom:.7rem;max-width:240px}
+.ft-motto{
+  font-family:'Cormorant Garamond',serif;
+  font-style:italic;
+  font-size:.95rem;
+  color:rgba(201,168,76,.45);
+  margin-bottom:.8rem;
+}
+.ft-soc{display:flex;gap:.4rem}
+.ft-s{
+  width:30px;height:30px;
+  border:1px solid rgba(247,242,232,.1);
+  display:flex;align-items:center;justify-content:center;
+  color:rgba(247,242,232,.35);
+  font-size:.7rem;font-weight:600;
+  border-radius:var(--r);
+  transition:border-color .2s,color .2s;
+}
+.ft-s:hover{border-color:var(--gold);color:var(--gold)}
+.ft-col h4{
+  font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:1rem;
+}
+.ft-col ul{display:flex;flex-direction:column;gap:.55rem}
+.ft-col ul li a{
+  color:rgba(247,242,232,.38);font-size:.8rem;font-weight:300;
+  transition:color .2s;
+}
+.ft-col ul li a:hover{color:var(--cream)}
+.ft-bot{
+  border-top:1px solid rgba(255,255,255,.06);
+  padding-block:1.6rem;
+  display:flex;justify-content:space-between;align-items:center;
+  flex-wrap:wrap;gap:1rem;
+}
+.ft-bot p{font-size:.7rem;color:rgba(247,242,232,.22);font-weight:300}
+.ft-bot span{font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(201,168,76,.35)}
+
+/* ════ RESPONSIVE ════ */
+@media (max-width:1024px){
+  .about-grid{grid-template-columns:1fr}
+  .about-feats{grid-template-columns:repeat(4,1fr)}
+  .progs-head{flex-direction:column;align-items:flex-start}
+  .prog-cards{grid-template-columns:1fr}
+  .g-grid{grid-template-columns:1fr 1fr;grid-template-rows:auto;gap:3px}
+  .gc.tall{grid-row:span 1}
+  .psle-grid{grid-template-columns:1fr}
+  .hr-grid{grid-template-columns:repeat(5,1fr)}
+  .act-grid{grid-template-columns:repeat(2,1fr)}
+  .uni-grid{grid-template-columns:1fr}
+  .fees-grid{grid-template-columns:1fr}
+  .adm-grid{grid-template-columns:1fr}
+  .loc-grid{grid-template-columns:1fr}
+  .contact-grid{grid-template-columns:1fr}
+  .ft-main{grid-template-columns:1fr 1fr;row-gap:2.5rem}
+}
+@media (max-width:768px){
+  .topbar-right{display:none}
+  .topbar-email{display:none}
+  .topbar-sep{display:none}
+  .nav-links{display:none}
+  .nav-burger{display:flex}
+  .hero-stats{display:none}
+  .hero-row{flex-direction:column;align-items:flex-start}
+  .about-feats{grid-template-columns:1fr 1fr}
+  .t-grid{grid-template-columns:1fr}
+  .hr-grid{grid-template-columns:repeat(2,1fr)}
+  .act-grid{grid-template-columns:1fr}
+  .uni-cards{grid-template-columns:1fr}
+  .cf-row{grid-template-columns:1fr}
+  .docs-grid{grid-template-columns:1fr}
+  .ft-main{grid-template-columns:1fr}
+  .ft-bot{flex-direction:column;align-items:flex-start}
+  .tour-inner{flex-direction:column;align-items:flex-start}
+  .motto-main{letter-spacing:.02em}
+}
+@media (max-width:480px){
+  .hero-btns{flex-direction:column;align-items:flex-start}
+  .hr-grid{grid-template-columns:repeat(2,1fr)}
+  .about-feats{grid-template-columns:1fr}
+  .t-grid{grid-template-columns:1fr}
+  .g-grid{grid-template-columns:1fr;grid-template-rows:auto}
+  .gc{height:240px}
+  .topbar-inner{justify-content:center}
+}
+
+/* ════ MOBILE NAV OPEN ════ */
+.nav-mobile-open .nav-links{
+  display:flex;
+  flex-direction:column;
+  position:fixed;
+  top:0;left:0;right:0;bottom:0;
+  background:rgba(7,20,13,.98);
+  padding:6rem 2rem 2rem;
+  z-index:198;
+  overflow-y:auto;
+  gap:.25rem;
+}
+.nav-mobile-open .nav-links .n-link{
+  font-size:.9rem;
+  padding:.75rem 1rem;
+  border-bottom:1px solid rgba(255,255,255,.06);
+}
+.nav-mobile-open .n-drop{
+  position:static;
+  opacity:1;visibility:visible;transform:none;
+  background:rgba(255,255,255,.04);
+  border:none;border-radius:0;
+  padding:.25rem 0;
+  margin-top:.25rem;
+}
+</style>
+</head>
+<body>
+
+<!-- ══ TOP BAR ══ -->
+<div class="topbar">
+  <div class="container">
+    <div class="topbar-inner">
+      <div style="display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap">
+        <a href="tel:+2673182144" class="topbar-phone">
+          <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.21h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.77a16 16 0 0 0 6 6l.61-.61a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.22 16.92z"/></svg>
+          +267 318 2144
+        </a>
+        <span class="topbar-sep">·</span>
+        <a href="mailto:contactus@hillcrestint.com" class="topbar-email">contactus@hillcrestint.com</a>
+      </div>
+      <div class="topbar-right">
+        <span>Follow:</span>
+        <a href="https://www.facebook.com/profile.php?id=61555529108120" target="_blank">FB</a>
+        <a href="https://www.instagram.com/hillcrest1863" target="_blank">IG</a>
+        <a href="https://wa.me/26771749393" target="_blank">WA</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ NAV ══ -->
+<header>
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <div class="nav-left">
+        <img class="nav-logo"
+          src="https://hillcrestint.com/wp-content/uploads/2024/01/logo.png"
+          alt="Hillcrest Logo"
+          onerror="this.style.display='none'"
+        />
+        <div class="nav-brand">
+          <strong>Hillcrest International School</strong>
+          <small>Gaborone, Botswana</small>
+        </div>
+      </div>
+
+      <div class="nav-links" id="navLinks">
+        <div class="n-item">
+          <a href="#hero" class="n-link">Home</a>
+        </div>
+        <div class="n-item">
+          <a href="#about" class="n-link">About Us <span class="n-arr">▾</span></a>
+          <div class="n-drop">
+            <a href="https://hillcrestint.com/introduction/" target="_blank">Our Story</a>
+            <a href="https://hillcrestint.com/school-info/principals-message/" target="_blank">Principal's Message</a>
+            <a href="https://hillcrestint.com/school-info/our-staff/" target="_blank">Our Staff</a>
+            <a href="https://hillcrestint.com/school-info/our-values/" target="_blank">Our Values</a>
+            <a href="https://hillcrestint.com/hillcrest-pta/" target="_blank">Hillcrest PTA</a>
+          </div>
+        </div>
+        <div class="n-item">
+          <a href="#programmes" class="n-link">Academics <span class="n-arr">▾</span></a>
+          <div class="n-drop">
+            <a href="https://hillcrestint.com/the-curriculum/" target="_blank">Curriculum</a>
+            <a href="#psle">PSLE Results</a>
+            <a href="https://hillcrestint.com/asc2026/" target="_blank">Calendar 2026</a>
+            <a href="https://hillcrestint.com/library-computers/" target="_blank">Library &amp; Computers</a>
+            <a href="https://hillcrestint.com/stationery/" target="_blank">Stationery List</a>
+          </div>
+        </div>
+        <div class="n-item">
+          <a href="#activities" class="n-link">School Life <span class="n-arr">▾</span></a>
+          <div class="n-drop">
+            <a href="#activities">Co-Curricular Activities</a>
+            <a href="#uniform">School Uniform</a>
+            <hr/>
+            <a href="#transport">Transport Info</a>
+            <a href="#location">Facilities &amp; Location</a>
+          </div>
+        </div>
+        <div class="n-item">
+          <a href="#admissions" class="n-link">Admissions <span class="n-arr">▾</span></a>
+          <div class="n-drop">
+            <a href="#admissions">How to Apply</a>
+            <a href="#fees">School Fees</a>
+            <a href="#documents">Documents</a>
+            <a href="#contact">Schedule a Tour</a>
+          </div>
+        </div>
+        <a href="#contact" class="n-link nav-cta">Enquire Now</a>
+      </div>
+
+      <div class="nav-burger" id="burger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<!-- ══ HERO ══ -->
+<div class="hero" id="hero">
+  <div class="hero-bg">
+    <img
+      src="https://scontent-jnb2-1.xx.fbcdn.net/v/t39.30808-6/616260626_122244555392184303_2134772048015619549_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=13d280&_nc_ohc=ybyigNPiF0IQ7kNvwHDANBd&_nc_oc=AdnBk4ANVHGkC7a-qjWqOWyUUMNfxLyWqaRQRJXMDWwtPYk2XHDy0i2hGFpXrd_iZ2f9JWJbrOHs346OVVbdTpk3&_nc_zt=23&_nc_ht=scontent-jnb2-1.xx&_nc_gid=-MPb4cLY73bmRQZI4iPZxQ&_nc_ss=8&oh=00_AfsmBB7geusnRR8kapUPFGs3f9hvvYOtkFJqTKE8700hsg&oe=69A8ABA6"
+      alt="Hillcrest students"
+      onerror="this.src='https://hillcrestint.com/wp-content/uploads/2025/08/IMG_7475-scaled.jpg'"
+    />
+  </div>
+  <div class="hero-body">
+    <div class="hero-tag"><i></i>Admissions Open · 2026 / 27</div>
+    <h1 class="hero-h1">Where Every Child<br/>Finds Their <em>Brilliant</em></h1>
+    <p class="hero-sub">A premier PSLE English-Medium School in Gaborone — nurturing curious, confident young minds from Pre-Reception through Standard 7.</p>
+    <div class="hero-row">
+      <div class="hero-btns">
+        <a href="#tour" class="btn btn-g">Schedule a School Tour</a>
+        <a href="#admissions" class="btn btn-o">How to Apply</a>
+        <a href="tel:+2673182144" class="btn btn-o">📞 +267 318 2144</a>
+      </div>
+      <div class="hero-stats">
+        <div><div class="stat-n">30+</div><div class="stat-l">Years of Excellence</div></div>
+        <div><div class="stat-n">98%</div><div class="stat-l">PSLE Pass Rate</div></div>
+        <div><div class="stat-n">12+</div><div class="stat-l">Programmes Offered</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ MARQUEE ══ -->
+<div class="marquee" aria-hidden="true">
+  <div class="m-track" id="mtrack"></div>
+</div>
+
+<!-- ══ LEARN TO SERVE — STANDALONE MOTTO MOMENT ══ -->
+<div class="motto-band">
+  <p class="motto-eyebrow">Our School Motto</p>
+  <div class="motto-rule">
+    <span></span><i></i><span></span>
+  </div>
+  <h2 class="motto-main">Learn to Serve</h2>
+  <div class="motto-rule">
+    <span></span><i></i><span></span>
+  </div>
+  <p class="motto-sub">Hillcrest International School &nbsp;·&nbsp; Gaborone, Botswana &nbsp;·&nbsp; 30+ Years of Excellence</p>
+</div>
+
+<!-- ══ TOUR BANNER ══ -->
+<div class="tour-band" id="tour">
+  <div class="container">
+    <div class="tour-inner">
+      <div class="tour-left">
+        <div class="tour-icon">🏫</div>
+        <div>
+          <h3>Come See Hillcrest for Yourself</h3>
+          <p>Tour our campus, meet our teachers, and experience the Hillcrest community first-hand. Tours run Monday–Friday during school hours.</p>
+        </div>
+      </div>
+      <div style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap">
+        <a href="tel:+2673182144" class="tour-phone">📞 +267 318 2144</a>
+        <a href="#contact" class="btn btn-g">Book a Tour →</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ ABOUT ══ -->
+<section class="section" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="rv">
+        <div class="section-label">Our Philosophy</div>
+        <h2 class="section-title">Education That<br/><em>Shapes Lives</em></h2>
+        <p>At Hillcrest International School, we believe the best education reaches far beyond textbooks. We balance academic rigour with co-curricular depth, character formation, and joyful discovery — creating young people ready for Botswana and the world.</p>
+        <p>Guided by our motto <em>"Learn to Serve"</em>, our dedicated educators are mentors who inspire curiosity, celebrate effort, and guide each child toward their fullest potential in a safe, nurturing community.</p>
+      </div>
+      <div class="about-feats rv d2">
+        <div class="af">
+          <div class="af-icon"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+          <h3>Academic Excellence</h3><p>Rigorous PSLE curriculum through innovative, inquiry-based methods.</p>
+        </div>
+        <div class="af">
+          <div class="af-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div>
+          <h3>Small Class Sizes</h3><p>Every learner receives personalised attention and genuine pastoral care.</p>
+        </div>
+        <div class="af">
+          <div class="af-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+          <h3>Vibrant Community</h3><p>A warm, inclusive school family where everyone belongs and thrives.</p>
+        </div>
+        <div class="af">
+          <div class="af-icon"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+          <h3>Proven Results</h3><p>Outstanding PSLE outcomes — our graduates go on to Botswana's top schools.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PROGRAMMES ══ -->
+<section class="progs-section section" id="programmes">
+  <div class="container">
+    <div class="progs-head rv">
+      <div>
+        <div class="section-label" style="color:var(--gold)">Academic Pathways</div>
+        <h2 class="section-title light">Our <em>Programmes</em></h2>
+      </div>
+      <p>A seamless journey from early childhood through primary education — each stage purposefully built on the last.</p>
+    </div>
+    <div class="prog-cards rv d1">
+      <div class="pc"><div class="pc-n">01</div><h3>Early Childhood</h3><div class="pc-age">Pre-Reception · Ages 3–5</div><p>Play-based learning ignites natural curiosity. Children build language, motor skills, and social confidence in our nurturing early years environment.</p></div>
+      <div class="pc"><div class="pc-n">02</div><h3>Lower Primary</h3><div class="pc-age">Reception – Standard 3 · Ages 5–9</div><p>Core literacy and numeracy built on inquiry and creativity. Our teachers make learning an adventure children cannot wait to return to.</p></div>
+      <div class="pc"><div class="pc-n">03</div><h3>Upper Primary</h3><div class="pc-age">Standard 4–7 · Ages 9–14</div><p>Structured PSLE preparation enriched with science, technology, arts, and PE. Students graduate ready for the nation's top secondary schools.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ GALLERY ══ -->
+<section class="section" style="padding-bottom:0">
+  <div class="container">
+    <div class="rv">
+      <div class="section-label">Life at Hillcrest</div>
+      <h2 class="section-title">A School Full of <em>Moments</em></h2>
+    </div>
+  </div>
+  <div style="margin-top:2rem">
+    <div class="g-grid">
+      <div class="gc tall">
+        <img src="https://scontent-jnb2-1.xx.fbcdn.net/v/t39.30808-6/632755365_122248740860184303_8729330013604424437_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=13d280&_nc_ohc=iVpgibuIakAQ7kNvwHnyJ16&_nc_oc=AdnBy__G2ysLV5I8D9fSRXau9k3B6DCrni8enyBVhG_YNaHseRysLJ-sGMSHbgneAIxWvPl58JQuF8pYflLxB00b&_nc_zt=23&_nc_ht=scontent-jnb2-1.xx&_nc_gid=ItfeqYjrrtz1_vO9OezUkw&_nc_ss=8&oh=00_AfvXVnoip0dDWShu0bo7yV4fQw7oGwaYBhc19PkpIEPjGw&oe=69A8A717"
+          alt="Students" onerror="this.src='https://hillcrestint.com/wp-content/uploads/2025/09/resized-pic-1-scaled.jpg'"/>
+        <div class="gc-ov"></div>
+      </div>
+      <div class="gc">
+        <img src="https://scontent-jnb2-1.xx.fbcdn.net/v/t39.30808-6/632420106_122248619720184303_6007496268042492685_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=13d280&_nc_ohc=y9GlvzC0UQcQ7kNvwGlWs2i&_nc_oc=Admbl5-0lzQ-A9UqDnMfJOIXGSx0YP0K_lHcHtXstDhiU4bm5tRxynzDryJN9WDDtWP02h6Z1oex7vk-qawkM91L&_nc_zt=23&_nc_ht=scontent-jnb2-1.xx&_nc_gid=BROIaNBscR4CTvjB4nilYg&_nc_ss=8&oh=00_AftSWHp-jm4PU0w-HrjrknCphduKyzTON7kPqUAmseUKsw&oe=69A8A8A8"
+          alt="School life" onerror="this.src='https://hillcrestint.com/wp-content/uploads/2024/01/IMG_0834-scaled-768x510.jpg'"/>
+        <div class="gc-ov"></div>
+      </div>
+      <div class="gc">
+        <img src="https://scontent-jnb2-1.xx.fbcdn.net/v/t39.30808-6/630048752_122248332344184303_959024636521731080_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=13d280&_nc_ohc=NPlyLf8pChQQ7kNvwF2BGKs&_nc_oc=Adk9-0CPaHKNutiKD0NCE7Lu5Ugx7-QZMtJxRs4zhYDT6VZqLYiiUZvywgxi1HZ_tBjgeKQmwwq4vYtYtKb189MG&_nc_zt=23&_nc_ht=scontent-jnb2-1.xx&_nc_gid=UyIrz4QJDT5cxvGLa0CAaA&_nc_ss=8&oh=00_Aft62tbFNxWkqLdQGgURTopZu-guLoGSCGeyoqonyvvosg&oe=69A89AB1"
+          alt="Learning" onerror="this.src='https://hillcrestint.com/wp-content/uploads/2024/03/IMG_0843-scaled-768x510.jpg'"/>
+        <div class="gc-ov"></div>
+      </div>
+      <div class="gc">
+        <img src="https://scontent-jnb2-1.xx.fbcdn.net/v/t39.30808-6/623390401_122246738726184303_3713727498411616210_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=13d280&_nc_ohc=WnflbgqemDEQ7kNvwEO7AqF&_nc_oc=Adndm9NAHY1XuV0JdkThjJQjtk_bBh1Lctb3gHkqFf-QgTvyB8Uuu1NJx6bAtynnDbCspMOG9jIapoMucdVAfI-H&_nc_zt=23&_nc_ht=scontent-jnb2-1.xx&_nc_gid=V7wT_ObG33XuLZfSrfR_DA&_nc_ss=8&oh=00_Afs61le_XBkRmBNWxFpjaVszJPkIa3N9A9RTFH53MWdWmg&oe=69A8A923"
+          alt="Students" onerror="this.src='https://hillcrestint.com/wp-content/uploads/2024/03/IMG_0819-scaled-420x280.jpg'"/>
+        <div class="gc-ov"></div>
+      </div>
+      <div class="gc">
+        <img src="https://scontent-jnb2-1.xx.fbcdn.net/v/t39.30808-6/590466193_122238080990184303_9074952795903181458_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=13d280&_nc_ohc=M8ZYWmyNN6UQ7kNvwEVR-vF&_nc_oc=AdnPpGmgenK6RAPZyqly6yHNPqB3O-m8s-nvklDUF85SbG92SfT1UscztCYK5IzAkan3HQkByZsCZWyw0SQtdqC_&_nc_zt=23&_nc_ht=scontent-jnb2-1.xx&_nc_gid=1APGaa-bUj_TRg54tjpflA&_nc_ss=8&oh=00_Afu0vpbQ9CNC3lnKuMcKERTjY7BbcS0GmrnwS7zPjVGsHA&oe=69A8B13B"
+          alt="Activities" onerror="this.src='https://hillcrestint.com/wp-content/uploads/2024/03/IMG_0866-scaled-420x280.jpg'"/>
+        <div class="gc-ov"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PSLE ══ -->
+<section class="psle-section section" id="psle">
+  <div class="container">
+    <div class="rv" style="text-align:center">
+      <div class="section-label" style="justify-content:center;color:var(--gold)">Academic Achievement</div>
+      <h2 class="section-title light">PSLE Results <em>2025</em></h2>
+    </div>
+    <div class="psle-grid">
+      <div class="psle-photo rv d1">
+        <img src="https://hillcrestint.com/wp-content/uploads/2025/12/WhatsApp-Image-2025-12-12-at-08.52.22-526x430.jpeg"
+          alt="PSLE Class of 2025"
+          onerror="this.src='https://hillcrestint.com/wp-content/uploads/2024/03/IMG-20240117-WA0020-768x510.jpg'"/>
+        <div class="psle-badge">98%<small>Pass Rate 2025</small></div>
+      </div>
+      <div class="psle-copy rv d2">
+        <h3>Another Year of Outstanding Achievement</h3>
+        <p>We are incredibly proud of our PSLE Class of 2025! Their results stand among the finest in Gaborone, reflecting the dedication of our learners, the tireless support of their families, and the commitment of our entire teaching staff.</p>
+        <p>Our students continue to secure placements at Botswana's top secondary schools. At Hillcrest, excellence is not an accident — it is the product of a culture that celebrates effort, curiosity, and character every single day.</p>
+        <a href="https://hillcrestint.com/2025/12/12/psle-results/" target="_blank" class="btn btn-g" style="margin-top:.5rem">View Full Results →</a>
+      </div>
+    </div>
+    <!-- HONOUR ROLL -->
+    <div class="hr-wrap rv d2">
+      <div class="hr-ey">Class of 2025 — Top 10 Honour Roll</div>
+      <div class="hr-grid">
+        <div class="hrc"><div class="hrc-rank">🥇 1st</div><img class="hrc-img" src="https://hillcrestint.com/wp-content/uploads/2024/03/IMG-20240117-WA0020-768x510.jpg" alt=""/><div class="hrc-name">Oratile Selemo</div><div class="hrc-grade">Distinction</div></div>
+        <div class="hrc"><div class="hrc-rank">🥈 2nd</div><img class="hrc-img" src="https://hillcrestint.com/wp-content/uploads/2024/03/IMG_0843-scaled-768x510.jpg" alt=""/><div class="hrc-name">Kagiso Motswedi</div><div class="hrc-grade">Distinction</div></div>
+        <div class="hrc"><div class="hrc-rank">🥉 3rd</div><img class="hrc-img" src="https://hillcrestint.com/wp-content/uploads/2024/03/IMG_0819-scaled-420x280.jpg" alt=""/><div class="hrc-name">Tshepiso Kgomotso</div><div class="hrc-grade">Distinction</div></div>
+        <div class="hrc"><div class="hrc-rank">4th</div><img class="hrc-img" src="https://hillcrestint.com/wp-content/uploads/2024/03/IMG_0822-scaled-420x280.jpg" alt=""/><div class="hrc-name">Boitumelo Tladi</div><div class="hrc-grade">Distinction</div></div>
+        <div class="hrc"><div class="hrc-rank">5th</div><img class="hrc-img" src="https://hillcrestint.com/wp-content/uploads/2024/03/IMG_0829-scaled-420x280.jpg" alt=""/><div class="hrc-name">Onthatile Sechele</div><div class="hrc-grade">Credit</div></div>
+        <div class="hrc"><div class="hrc-rank">6th</div><img class="hrc-img" src="https://hillcrestint.com/wp-content/uploads/2024/03/IMG_0845-scaled-420x280.jpg" alt=""/><div class="hrc-name">Kelebogile Moruisi</div><div class="hrc-grade">Credit</div></div>
+        <div class="hrc"><div class="hrc-rank">7th</div><img class="hrc-img" src="https://hillcrestint.com/wp-content/uploads/2024/03/IMG_0850-scaled-420x280.jpg" alt=""/><div class="hrc-name">Refilwe Kelapile</div><div class="hrc-grade">Credit</div></div>
+        <div class="hrc"><div class="hrc-rank">8th</div><img class="hrc-img" src="https://hillcrestint.com/wp-content/uploads/2024/03/IMG_0852-scaled-420x280.jpg" alt=""/><div class="hrc-name">Mmoloki Sebata</div><div class="hrc-grade">Credit</div></div>
+        <div class="hrc"><div class="hrc-rank">9th</div><img class="hrc-img" src="https://hillcrestint.com/wp-content/uploads/2024/03/IMG_0861-scaled-420x280.jpg" alt=""/><div class="hrc-name">Goitseone Motshabi</div><div class="hrc-grade">Pass</div></div>
+        <div class="hrc"><div class="hrc-rank">10th</div><img class="hrc-img" src="https://hillcrestint.com/wp-content/uploads/2024/03/IMG_0862-scaled-420x280.jpg" alt=""/><div class="hrc-name">Lesego Mosweu</div><div class="hrc-grade">Pass</div></div>
+      </div>
+      <p class="hr-note">Contact the school office for the official full results list with aggregate scores.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ ACTIVITIES ══ -->
+<section class="section" id="activities">
+  <div class="container">
+    <div class="rv">
+      <div class="section-label">Beyond the Classroom</div>
+      <h2 class="section-title">Co-Curricular <em>Life</em></h2>
+    </div>
+    <div class="act-grid rv d1">
+      <div class="ac">
+        <img src="https://scontent-jnb2-1.xx.fbcdn.net/v/t39.30808-6/598011782_122240026088184303_4737150654233085275_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=13d280&_nc_ohc=3jCWRup_I28Q7kNvwHzJelE&_nc_oc=AdnS5PpQnf3IMSZfEVfjIS0y0lPrTVVl6jZykwVC2tlsTU95DZN51E-YoSGGjwLhV1k_JAmbHu9M5DKVM_2gD8jr&_nc_zt=23&_nc_ht=scontent-jnb2-1.xx&_nc_gid=wCzpAU9eSShoM-bDO6x06A&_nc_ss=8&oh=00_AfuGNSGeWBiY2mIEFpmHm1ONLcOAY_k7CvDOCZMrFmOfvQ&oe=69A8AE0B" alt="Soccer" onerror="this.src='https://hillcrestint.com/wp-content/uploads/2025/09/soccer-team-1-scaled.jpg'"/>
+        <div class="ac-body"><div class="ac-tag">Sports</div><h3>Football &amp; Soccer</h3><p>Fundamental skills, tactics, and teamwork — students compete in inter-school tournaments across Gaborone.</p></div>
+      </div>
+      <div class="ac">
+        <img src="https://scontent-jnb2-1.xx.fbcdn.net/v/t39.30808-6/603781763_122241706262184303_4973190080780163596_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=13d280&_nc_ohc=FbJZljk7od4Q7kNvwH6SAYH&_nc_oc=AdnRShJPiIS8zUnrSIR8AfZDpHmZdcRqUCLFMivVHMbrjavGRopYSMM_ze10UTJhOzv8Wr65oHizxw--IveMcilk&_nc_zt=23&_nc_ht=scontent-jnb2-1.xx&_nc_gid=ziWJcT01Zt068YdEPz7jow&_nc_ss=8&oh=00_AfvlCtME6-m5KpWM3GoziAp1eewrPFM5vYegqzLI-ZG8cw&oe=69A8B9F3" alt="Chess" onerror="this.src='https://hillcrestint.com/wp-content/uploads/2024/01/IMG_0834-scaled-768x510.jpg'"/>
+        <div class="ac-body"><div class="ac-tag">Mind Sports</div><h3>Chess Club</h3><p>Strategic thinking, patience, and analytical reasoning — chess builds powerful cognitive skills in our learners.</p></div>
+      </div>
+      <div class="ac">
+        <img src="https://scontent-jnb2-1.xx.fbcdn.net/v/t39.30808-6/616319269_122244727508184303_3848570427769757655_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=13d280&_nc_ohc=5TulP4ZhGVUQ7kNvwHEGhnd&_nc_oc=AdnpzplEy5kXxxht90YoDw_MH9Lm58DBNpnGK1mJ9NGmO-u6riEIorKSHqEsVWkPycWyhAkHMESu-AJ-gBGnfJPM&_nc_zt=23&_nc_ht=scontent-jnb2-1.xx&_nc_gid=EuWwoi1x9OVTk3DhSNaPNQ&_nc_ss=8&oh=00_Afsjb-ej-hgKPilUHqHjL5R5NUHug6WoCLNiQiDYNx9z1Q&oe=69A89503" alt="ICT" onerror="this.src='https://hillcrestint.com/wp-content/uploads/2024/03/IMG_0843-scaled-768x510.jpg'"/>
+        <div class="ac-body"><div class="ac-tag">Technology</div><h3>ICT &amp; Computer Lab</h3><p>Digital literacy and creative technology skills preparing learners for tomorrow's world.</p></div>
+      </div>
+      <div class="ac">
+        <img src="https://scontent-jnb2-1.xx.fbcdn.net/v/t39.30808-6/597361742_122239555664184303_2891549845342360734_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=13d280&_nc_ohc=QDjuoqZDRAAQ7kNvwHOstGn&_nc_oc=AdlrAQJR3XRoOBNlkD87lv_kz7Jt8xcP7J0WgjtJzpvwXyw9ZqG_dKY2a5nR2KCxothrOR-pu-KfO2jsxkNG-P3G&_nc_zt=23&_nc_ht=scontent-jnb2-1.xx&_nc_gid=VTUNiNp7NOPSXsDsh1nTtA&_nc_ss=8&oh=00_AfsNWV_zBk07jfRV6pN1bPP4seMwTYtiMLis3xDWjC6KBQ&oe=69A8AB48" alt="Majorettes" onerror="this.src='https://hillcrestint.com/wp-content/uploads/2025/09/resized-pic-1-scaled.jpg'"/>
+        <div class="ac-body"><div class="ac-tag">Performing Arts</div><h3>Majorettes &amp; Dance</h3><p>Discipline, rhythm, and confidence through precision performance and vibrant cultural expression.</p></div>
+      </div>
+      <div class="ac">
+        <img src="https://hillcrestint.com/wp-content/uploads/2024/03/IMG_0843-scaled-768x510.jpg" alt="Swimming Pool"/>
+        <div class="ac-body"><div class="ac-tag">Aquatics</div><h3>Swimming Pool</h3><p>Our on-site pool gives learners regular access to aquatic education and water safety training from Reception onwards.</p></div>
+      </div>
+      <div class="ac">
+        <img src="https://hillcrestint.com/wp-content/uploads/2025/09/soccer-team-1-scaled.jpg" alt="Robotics" onerror="this.src='https://hillcrestint.com/wp-content/uploads/2024/01/IMG_0834-scaled-768x510.jpg'"/>
+        <div class="ac-body"><div class="ac-tag">STEM</div><h3>Robotics</h3><p>Hands-on engineering and coding through building and programming robots — STEM thinking at its most exciting.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ UNIFORM ══ -->
+<section class="uniform-section section" id="uniform">
+  <div class="container">
+    <div class="rv" style="text-align:center;margin-bottom:3rem">
+      <div class="section-label" style="justify-content:center">Dress Code</div>
+      <h2 class="section-title">School <em>Uniform</em></h2>
+    </div>
+    <div class="uni-grid">
+      <div class="uni-cards rv d1">
+        <div class="uc">
+          <img src="https://scontent-jnb2-1.xx.fbcdn.net/v/t39.30808-6/616260626_122244555392184303_2134772048015619549_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=13d280&_nc_ohc=ybyigNPiF0IQ7kNvwHDANBd&_nc_oc=AdnBk4ANVHGkC7a-qjWqOWyUUMNfxLyWqaRQRJXMDWwtPYk2XHDy0i2hGFpXrd_iZ2f9JWJbrOHs346OVVbdTpk3&_nc_zt=23&_nc_ht=scontent-jnb2-1.xx&_nc_gid=-MPb4cLY73bmRQZI4iPZxQ&_nc_ss=8&oh=00_AfsmBB7geusnRR8kapUPFGs3f9hvvYOtkFJqTKE8700hsg&oe=69A8ABA6"
+            alt="School Uniform" onerror="this.src='https://hillcrestint.com/wp-content/uploads/2025/09/resized-pic-1-scaled.jpg'"/>
+          <div class="uc-body"><h3>School Uniform</h3><p>Smart formal attire worn on all regular school days.</p></div>
+        </div>
+        <div class="uc">
+          <img src="https://scontent-jnb2-1.xx.fbcdn.net/v/t39.30808-6/617076378_122245437068184303_306442904409568625_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=13d280&_nc_ohc=FhErU_i6QsEQ7kNvwEYYR6Q&_nc_oc=AdmUUKnNj3yUR54SRsQMfUSt9HseoXtP77aFd6-5fwLPHVz0Obv5eBPT9w6i0wmB8kvqUZB6F0lcwFht6Olf9cZQ&_nc_zt=23&_nc_ht=scontent-jnb2-1.xx&_nc_gid=m4pOGTYWW9efMwggM3WHTw&_nc_ss=8&oh=00_AfsK18NuaWCQgFz7Gr-_BGVvJlIRywlSdINoJPnFWrIH2Q&oe=69A8A517"
+            alt="PE Uniform" onerror="this.src='https://hillcrestint.com/wp-content/uploads/2024/01/IMG_0846-scaled-420x280.jpg'"/>
+          <div class="uc-body"><h3>PE / Sports Kit</h3><p>Worn on designated PE days and school sports events only.</p></div>
+        </div>
+      </div>
+      <div class="uni-desc rv d2">
+        <div class="section-label">What to Know</div>
+        <h2>Wearing Our Uniform<br/>with <em>Pride</em></h2>
+        <p>Our school uniform represents belonging, equality, and our shared Hillcrest identity. All learners are expected to wear it neatly and correctly at all times on school premises.</p>
+        <div class="uni-pills">
+          <span class="pill">Full uniform on all school days</span>
+          <span class="pill">PE kit on PE days only</span>
+          <span class="pill">Label all clothing</span>
+          <span class="pill">Black school shoes</span>
+          <span class="pill">No excessive jewellery</span>
+          <span class="pill">Neat, conservative hairstyles</span>
+        </div>
+        <div class="shop-note">
+          <strong>🛍️ School Shop — Uniform Sales</strong><br/>
+          Branded uniforms are available at the <strong>School Shop</strong>, operating <strong>Monday to Thursday, 2:00 PM – 3:00 PM</strong>. A full uniform list is also available from the school reception or admissions pack.
+        </div>
+        <a href="https://hillcrestint.com/school-uniform/" target="_blank" class="btn btn-f" style="margin-top:1.5rem;align-self:flex-start">Full Uniform Guide →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ TRANSPORT ══ -->
+<div class="transport-band" id="transport">
+  <div class="container">
+    <div class="transport-inner">
+      <div class="transport-icon">🚌</div>
+      <div>
+        <h3>Transport Information</h3>
+        <p>Hillcrest International School does not operate a school transport service. The safe transportation of children to and from school is the full responsibility of parents and guardians. We recommend coordinating with other Hillcrest families in your area. For any queries, please contact our office.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ DOCUMENTS ══ -->
+<section class="docs-section section" id="documents">
+  <div class="container">
+    <div class="rv" style="text-align:center">
+      <div class="section-label" style="justify-content:center;color:var(--gold)">Resources for Parents</div>
+      <h2 class="section-title light">Important <em>Documents</em></h2>
+    </div>
+    <div class="docs-grid rv d1">
+      <div class="doc-card">
+        <div class="doc-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+        <h3>School Prospectus</h3>
+        <p>Everything you need to know about Hillcrest — our vision, programmes, facilities, values, and what makes us exceptional.</p>
+        <a href="https://hillcrestint.com/school-info/admissions/" target="_blank" class="doc-link">Download Prospectus →</a>
+      </div>
+      <div class="doc-card">
+        <div class="doc-icon"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+        <h3>School Calendar 2026</h3>
+        <p>Term dates, public holidays, exam periods, sports days, and all key events for the 2026 academic year.</p>
+        <a href="https://hillcrestint.com/asc2026/" target="_blank" class="doc-link">View Calendar →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FEES ══ -->
+<section class="section" id="fees">
+  <div class="container">
+    <div class="fees-grid">
+      <div class="fees-copy rv">
+        <div class="section-label">Transparent Pricing</div>
+        <h2>Investing in Your<br/>Child's <em>Future</em></h2>
+        <p>At Hillcrest, we believe in complete fee transparency. Our fees reflect the quality of education, facilities, and care we provide — world-class learning at accessible Botswana rates.</p>
+        <p>Contact our admissions office for a full breakdown or view the complete schedule online. We walk you through everything with no surprises.</p>
+        <a href="https://hillcrestint.com/school-info/700-2/" target="_blank" class="btn btn-g" style="margin-top:1.2rem">View Full Fee Schedule →</a>
+      </div>
+      <div class="fees-stack rv d2">
+        <a href="https://hillcrestint.com/school-info/700-2/" target="_blank" class="fc"><div><h4>Pre-Reception (Full Day)</h4><small>Early childhood programme</small></div><span class="fc-arr">→</span></a>
+        <a href="https://hillcrestint.com/school-info/700-2/" target="_blank" class="fc"><div><h4>Reception – Standard 3</h4><small>Lower primary fees</small></div><span class="fc-arr">→</span></a>
+        <a href="https://hillcrestint.com/school-info/700-2/" target="_blank" class="fc"><div><h4>Standard 4 – Standard 7</h4><small>Upper primary fees</small></div><span class="fc-arr">→</span></a>
+        <a href="https://hillcrestint.com/school-info/admissions/" target="_blank" class="fc"><div><h4>Registration Fee</h4><small>Non-refundable · P100.00</small></div><span class="fc-arr">→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PULL QUOTE ══ -->
+<div class="pullquote">
+  <blockquote>"Better education is tied to the nation's goals of Democracy, Development, Self-Reliance and Unity — and we live that mission every single day."</blockquote>
+  <cite>— Hillcrest International School · Learn to Serve</cite>
+</div>
+
+<!-- ══ TESTIMONIALS ══ -->
+<section class="section">
+  <div class="container">
+    <div class="rv" style="text-align:center">
+      <div class="section-label" style="justify-content:center">What Our Parents Say</div>
+      <h2 class="section-title">Voices of Our <em>Community</em></h2>
+    </div>
+    <div class="t-grid rv d1">
+      <div class="tc">
+        <p class="tc-text">The teachers and staff are vigilant and responsive. My child feels completely comfortable approaching them with any concerns. The pastoral care here is genuinely exceptional and gives me real peace of mind.</p>
+        <div class="tc-author">Vivek Patel — Parent</div>
+      </div>
+      <div class="tc">
+        <p class="tc-text">The extracurricular activities have really helped my daughter develop new skills and interests. The school offers so much more than academics — it truly shapes the whole child into a confident, capable young person.</p>
+        <div class="tc-author">Malebogo Kgosi — Parent</div>
+      </div>
+      <div class="tc">
+        <p class="tc-text">Since joining Hillcrest, my son has blossomed as a learner and as a person. The dedication of every single staff member is visible in everything they do. This school truly lives by its motto — Learn to Serve.</p>
+        <div class="tc-author">Timothy Moremi — Parent</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ ADMISSIONS ══ -->
+<section class="adm-section section" id="admissions">
+  <div class="container">
+    <div class="adm-grid">
+      <div class="adm-copy rv">
+        <div class="section-label" style="color:var(--gold)">Join Our Family</div>
+        <h2 class="section-title light">Admissions<br/>Now <em>Open</em></h2>
+        <p>We welcome families who share our commitment to excellence. Our admissions team guides you every step of the way — from your first visit to your child's first day.</p>
+        <a href="#contact" class="btn btn-g">Schedule a School Tour →</a>
+      </div>
+      <div class="adm-steps rv d2">
+        <div class="adm-step"><div class="step-n">01</div><div class="step-body"><h4>Visit &amp; Enquire</h4><p>Contact our office or book a tour to experience Hillcrest first-hand and meet our wonderful team.</p></div></div>
+        <div class="adm-step"><div class="step-n">02</div><div class="step-body"><h4>Complete Application</h4><p>Submit the form with birth certificate, previous school report, and proof of residence.</p></div></div>
+        <div class="adm-step"><div class="step-n">03</div><div class="step-body"><h4>Registration Fee</h4><p>Pay the non-refundable fee of P100 to secure your child's place in the admissions queue.</p></div></div>
+        <div class="adm-step"><div class="step-n">04</div><div class="step-body"><h4>Welcome to Hillcrest!</h4><p>Receive your welcome pack, uniform guide, stationery list, and school calendar.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ LOCATION ══ -->
+<section class="section" id="location">
+  <div class="container">
+    <div class="rv">
+      <div class="section-label">Find Us</div>
+      <h2 class="section-title">Our <em>Location</em></h2>
+    </div>
+    <div class="loc-grid">
+      <div class="map-box rv d1">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3628.5!2d25.9231!3d-24.6582!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1eba060d8b5f2e0d%3A0x3c4e5f123456789a!2sBlock%203%2C%20Gaborone%2C%20Botswana!5e0!3m2!1sen!2sbw!4v1700000000000!5m2!1sen!2sbw"
+          allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Hillcrest Location"></iframe>
+      </div>
+      <div class="loc-info rv d2">
+        <div class="office-photo">
+          <img src="https://scontent-jnb2-1.xx.fbcdn.net/v/t39.30808-6/479565701_1308441626942265_7888824784432576211_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=105&ccb=1-7&_nc_sid=13d280&_nc_ohc=Q3MF8gwdFv8Q7kNvwFL7XwI&_nc_oc=AdnKTg2iKLRbqHtW4Saaq2oNHxfLvJvHK32ogIGckd4yKiy-X3ZKdJzZMeVlesWJ6TXphBaUAbSyoNuzS8_V93VT&_nc_zt=23&_nc_ht=scontent-jnb2-1.xx&_nc_gid=JYx-B1FSrcWG5CCm_Gkifg&_nc_ss=8&oh=00_AfutDyo4MSAoTyVGITSj1OxQa_LBRZs0jbuCwD4aMrLDzA&oe=69A8980A"
+            alt="School Office" onerror="this.src='https://hillcrestint.com/wp-content/uploads/2024/01/IMG_0834-scaled-768x510.jpg'"/>
+        </div>
+        <div class="loc-rows">
+          <div class="lr"><span class="lr-ic">📍</span><div class="lr-body"><strong>Address</strong><span>Plot 28436, Block 3, Gaborone, Botswana</span></div></div>
+          <div class="lr"><span class="lr-ic">📞</span><div class="lr-body"><strong>Phone</strong><span><a href="tel:+2673182144">+267 318 2144</a></span></div></div>
+          <div class="lr"><span class="lr-ic">💬</span><div class="lr-body"><strong>WhatsApp</strong><span><a href="https://wa.me/26771749393">+267 717 49393</a></span></div></div>
+          <div class="lr"><span class="lr-ic">✉️</span><div class="lr-body"><strong>Email</strong><span><a href="mailto:contactus@hillcrestint.com">contactus@hillcrestint.com</a></span></div></div>
+          <div class="lr"><span class="lr-ic">🕐</span><div class="lr-body"><strong>Office Hours</strong><span>Monday – Friday · 07:30 AM – 4:00 PM</span></div></div>
+        </div>
+        <a href="https://maps.google.com/?q=Plot+28436+Block+3+Gaborone+Botswana" target="_blank" class="btn btn-g">Open in Google Maps →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CONTACT ══ -->
+<section class="contact-section section" id="contact">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="ci rv">
+        <div class="section-label">Get in Touch</div>
+        <h2>We'd Love to<br/>Hear From <em>You</em></h2>
+        <p>Whether you'd like to enquire about admissions, book a school tour, or have any questions at all — our team is always ready to help.</p>
+        <div style="margin-top:1.4rem;padding:1rem 1.2rem;background:var(--white);border-radius:var(--r);border-left:3px solid var(--gold)">
+          <a href="tel:+2673182144" style="display:flex;align-items:center;gap:.5rem;color:var(--forest);font-size:1.1rem;font-weight:500;font-family:'Cormorant Garamond',serif">
+            📞 <span>+267 318 2144</span>
+          </a>
+          <p style="font-size:.78rem;color:var(--muted);margin-top:.3rem;font-weight:300">Mon–Fri · 07:30 AM – 4:00 PM</p>
+        </div>
+        <div class="ci-socials">
+          <a href="https://www.facebook.com/profile.php?id=61555529108120" target="_blank" class="ci-soc" title="Facebook">FB</a>
+          <a href="https://www.instagram.com/hillcrest1863" target="_blank" class="ci-soc" title="Instagram">IG</a>
+          <a href="https://wa.me/26771749393" target="_blank" class="ci-soc" title="WhatsApp">WA</a>
+        </div>
+      </div>
+      <form class="cf rv d2" id="contactForm">
+        <div class="cf-row">
+          <div class="fg"><label>Parent / Guardian Name</label><input type="text" id="fname" placeholder="Full name" required/></div>
+          <div class="fg"><label>Phone Number</label><input type="tel" id="fphone" placeholder="+267 000 0000"/></div>
+        </div>
+        <div class="fg"><label>Email Address</label><input type="email" id="femail" placeholder="your@email.com" required/></div>
+        <div class="cf-row">
+          <div class="fg"><label>Child's Name</label><input type="text" id="fchild" placeholder="Child's full name"/></div>
+          <div class="fg">
+            <label>Applying For</label>
+            <select id="fgrade">
+              <option value="">Select grade</option>
+              <option>Pre-Reception</option><option>Reception</option><option>Standard 1</option><option>Standard 2</option>
+              <option>Standard 3</option><option>Standard 4</option><option>Standard 5</option><option>Standard 6</option>
+              <option>Standard 7</option><option>School Tour Request</option><option>General Enquiry</option>
+            </select>
+          </div>
+        </div>
+        <div class="fg"><label>Your Message</label><textarea id="fmessage" placeholder="How can we help you?"></textarea></div>
+        <button type="submit" class="btn btn-g" id="submitBtn" style="align-self:flex-start">Send Enquiry →</button>
+        <p class="form-note">Your enquiry opens your email app pre-filled and sends directly to <strong>contactus@hillcrestint.com</strong> — no data is stored on this website.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="container">
+    <div class="ft-main">
+      <div class="ft-brand">
+        <div class="ft-brand-logo">
+          <img class="ft-logo" src="https://hillcrestint.com/wp-content/uploads/2024/01/logo.png" alt="Hillcrest Logo" onerror="this.style.display='none'"/>
+          <div class="ft-brand-txt">
+            <strong>Hillcrest International School</strong>
+            <small>Gaborone, Botswana</small>
+          </div>
+        </div>
+        <p>Nurturing excellence in education for 30+ years — building confident, well-rounded citizens ready to shape Botswana's future.</p>
+        <div class="ft-motto">"Learn to Serve"</div>
+        <div class="ft-soc">
+          <a href="https://www.facebook.com/profile.php?id=61555529108120" target="_blank" class="ft-s">FB</a>
+          <a href="https://www.instagram.com/hillcrest1863" target="_blank" class="ft-s">IG</a>
+          <a href="https://wa.me/26771749393" target="_blank" class="ft-s">WA</a>
+        </div>
+      </div>
+      <div class="ft-col">
+        <h4>About</h4>
+        <ul>
+          <li><a href="https://hillcrestint.com/introduction/" target="_blank">Our Story</a></li>
+          <li><a href="https://hillcrestint.com/school-info/principals-message/" target="_blank">Principal's Message</a></li>
+          <li><a href="https://hillcrestint.com/school-info/our-staff/" target="_blank">Our Staff</a></li>
+          <li><a href="https://hillcrestint.com/school-info/our-values/" target="_blank">Our Values</a></li>
+          <li><a href="https://hillcrestint.com/hillcrest-pta/" target="_blank">Hillcrest PTA</a></li>
+        </ul>
+      </div>
+      <div class="ft-col">
+        <h4>Academics</h4>
+        <ul>
+          <li><a href="https://hillcrestint.com/the-curriculum/" target="_blank">Curriculum</a></li>
+          <li><a href="#psle">PSLE Results</a></li>
+          <li><a href="https://hillcrestint.com/asc2026/" target="_blank">Calendar 2026</a></li>
+          <li><a href="https://hillcrestint.com/library-computers/" target="_blank">Library &amp; ICT</a></li>
+          <li><a href="https://hillcrestint.com/stationery/" target="_blank">Stationery List</a></li>
+        </ul>
+      </div>
+      <div class="ft-col">
+        <h4>Admissions</h4>
+        <ul>
+          <li><a href="#admissions">How to Apply</a></li>
+          <li><a href="#fees">School Fees</a></li>
+          <li><a href="#uniform">School Uniform</a></li>
+          <li><a href="#documents">Prospectus</a></li>
+          <li><a href="#contact">Contact &amp; Tours</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="ft-bot">
+      <p>© 2026 Hillcrest International School, Gaborone, Botswana. All rights reserved.</p>
+      <span>PSLE English Medium · Ministry of Education Approved</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* NAV SOLID ON SCROLL */
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('solid', window.scrollY > 40);
+}, {passive:true});
+
+/* MARQUEE */
+const items = ['Learn to Serve','Outstanding PSLE Results 2025','Robotics & STEM','Chess Club','On-Site Swimming Pool','Football','ICT Computer Lab','Majorettes','School Library','Creative Arts','Early Childhood Care','Admissions Open 2026/27','30+ Years of Excellence'];
+const track = document.getElementById('mtrack');
+const html = [...items,...items].map(w=>`<span class="m-item">${w}<span class="m-dot"></span></span>`).join('');
+track.innerHTML = html;
+// duplicate for seamless loop
+track.parentElement.appendChild(track.cloneNode(true));
+
+/* SCROLL REVEAL */
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('in'); });
+}, {threshold: 0.08});
+document.querySelectorAll('.rv').forEach(el => observer.observe(el));
+
+/* SMOOTH ANCHOR SCROLL */
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const id = a.getAttribute('href');
+    if (id === '#') return;
+    const target = document.querySelector(id);
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({behavior:'smooth', block:'start'});
+    }
+  });
+});
+
+/* MAILTO FORM — sends directly to school email, zero data stored */
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const name  = document.getElementById('fname').value.trim();
+  const phone = document.getElementById('fphone').value.trim();
+  const email = document.getElementById('femail').value.trim();
+  const child = document.getElementById('fchild').value.trim();
+  const grade = document.getElementById('fgrade').value;
+  const msg   = document.getElementById('fmessage').value.trim();
+
+  const subject = encodeURIComponent('Hillcrest Enquiry — ' + (grade || 'General') + (child ? ' — ' + child : ''));
+  const body = encodeURIComponent(
+    'Dear Hillcrest Admissions Team,\n\n' +
+    'Parent / Guardian: ' + name + '\n' +
+    'Phone: ' + (phone || 'Not provided') + '\n' +
+    'Reply Email: ' + email + '\n' +
+    "Child's Name: " + (child || 'Not provided') + '\n' +
+    'Applying For: ' + (grade || 'Not specified') + '\n\n' +
+    'Message:\n' + (msg || 'No message provided') + '\n\n' +
+    '— Sent via Hillcrest International School website'
+  );
+
+  window.location.href = 'mailto:contactus@hillcrestint.com?subject=' + subject + '&body=' + body;
+
+  const btn = document.getElementById('submitBtn');
+  btn.textContent = 'Opening your email app ✓';
+  btn.style.background = 'var(--leaf)';
+  setTimeout(() => { btn.textContent = 'Send Enquiry →'; btn.style.background = ''; }, 4000);
+});
+
+/* MOBILE NAV */
+const burger = document.getElementById('burger');
+burger.addEventListener('click', () => {
+  document.body.classList.toggle('nav-mobile-open');
+});
+// Close when clicking a link
+document.getElementById('navLinks').querySelectorAll('a').forEach(a => {
+  a.addEventListener('click', () => {
+    document.body.classList.remove('nav-mobile-open');
+  });
+});
+</script>
+</body>
+</html>
